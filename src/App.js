@@ -37,7 +37,7 @@ const App = () => {
           ? <div>
             <ScanditBarcodeScanner
               licenseKey={LICENSE_KEY}
-              onScan={console.log}
+              onScan={setResult}
               onScanError={setResult}
               scanSettings={getScanSettings()}
             />
