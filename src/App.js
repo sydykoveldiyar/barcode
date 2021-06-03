@@ -17,6 +17,7 @@ dotenv.config()
 
 const App = () => {
   const [ready, setReady] = useState(false)
+  const [result, setResult] = useState('')
 
   const getScanSettings = () => {
     return new ScanSettings({ enabledSymbologies: [Barcode.Symbology.CODE128] });
@@ -37,12 +38,16 @@ const App = () => {
             <ScanditBarcodeScanner
               licenseKey={LICENSE_KEY}
               onScan={console.log}
-              onScanError={console.log}
+              onScanError={setResult}
               scanSettings={getScanSettings()}
             />
+            <div>
+              RESULT: {result}
+            </div>
           </div>
           : null
       }
+
     </div>
   );
 }
